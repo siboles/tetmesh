@@ -6,6 +6,11 @@ source:
   git_url: https://github.com/siboles/tetmesh.git
   git_rev: 0.0
 
+build:
+  number: 0
+  features:
+    - vc9 [win and py27]
+
 requirements:
   build:
     - python
@@ -14,6 +19,7 @@ requirements:
     - tbb
     - cmake [not osx and not win]
     - cmake-mac [osx or win]
+    - gcc [not osx and not win]
   run:
     - python
     - cgal
