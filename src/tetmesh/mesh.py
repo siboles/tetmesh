@@ -57,9 +57,9 @@ class Mesher(object):
 
         path = os.path.dirname(__file__)
         if os.name == "posix":
-            self.exe = os.path.join(path, "linux", "mesh_polyhedral_domain")
+            self.exe = os.path.join(path, "mesh_polyhedral_domain")
         elif os.name == "nt":
-            self.exe = os.path.join(path, "windows", "mesh_polyhedral_domain.exe")
+            self.exe = os.path.join(path, "mesh_polyhedral_domain.exe")
         else:
             raise SystemExit("This operating system is not supported.")
 

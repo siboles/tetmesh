@@ -8,10 +8,9 @@ class BinaryDistribution(Distribution):
         return False
 
 if os.name == "posix":
-    package_data = {"tetmesh": ["*.so", "mesh_polyhedral_domain"]}
+    package_data = {"tetmesh": ["mesh_polyhedral_domain"]}
 elif os.name == "nt":
-    print "This"
-    package_data = {"tetmesh": ["*.a", "*.exe"]}
+    package_data = {"tetmesh": ["*.exe"]}
 
 setup(
     name = "tetmesh",
