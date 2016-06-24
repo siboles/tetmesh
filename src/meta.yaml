@@ -1,0 +1,26 @@
+package:
+  name: tetmesh
+  version: 0.0
+
+source:
+  git_url: https://github.com/siboles/tetmesh.git
+  git_rev: 0.0
+
+requirements:
+  build:
+    - python
+    - pip
+    - cgal
+    - tbb
+    - cmake [not osx and not win]
+    - cmake-mac [osx or win]
+  run:
+    - python
+    - cgal
+    - tbb
+    - trimesh
+
+about:
+  home: https://github.com/siboles/tetmesh
+  summary: "A small module for building 3-D tetrahedral meshes from polygonal surfaces."
+  license: GPLv3

@@ -7,16 +7,11 @@ class BinaryDistribution(Distribution):
     def is_pure(self):
         return False
 
-if "win_amd64" in sys.argv:
-    win64 = True
-else:
-    win64=False
-
-if os.name == "posix" and not win64:
-    package_data = {"tetmesh": ["linux/*"]}
-elif os.name == "nt" or win64:
+if os.name == "posix":
+    package_data = {"tetmesh": ["*.so", "mesh_polyhedral_domain"]}
+elif os.name == "nt":
     print "This"
-    package_data = {"tetmesh": ["windows/*"]}
+    package_data = {"tetmesh": ["*.a", "*.exe"]}
 
 setup(
     name = "tetmesh",
