@@ -19,7 +19,6 @@ requirements:
     - tbb
     - cmake [not osx and not win]
     - cmake-mac [osx or win]
-    - gcc [not osx and not win]
   run:
     - python
     - cgal
@@ -30,3 +29,4 @@ about:
   home: https://github.com/siboles/tetmesh
   summary: "A small module for building 3-D tetrahedral meshes from polygonal surfaces."
   license: GPLv3
+
