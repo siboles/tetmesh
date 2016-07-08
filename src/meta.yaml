@@ -14,7 +14,8 @@ build:
 requirements:
   build:
     - python
-    - pip
+    - setuptools
+    - trimesh
     - cgal
     - tbb
     - cmake [not osx and not win]
@@ -25,8 +26,11 @@ requirements:
     - tbb
     - trimesh
 
+test:
+  imports:
+    - tetmesh
+
 about:
   home: https://github.com/siboles/tetmesh
   summary: "A small module for building 3-D tetrahedral meshes from polygonal surfaces."
   license: GPLv3
-
