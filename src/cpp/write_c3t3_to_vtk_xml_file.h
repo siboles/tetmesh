@@ -14,6 +14,8 @@ namespace CGAL {
         typedef typename C3t3::Triangulation Tr;
         typedef typename C3t3::Cells_in_complex_iterator Cell_iterator;
         typedef typename Tr::Finite_vertices_iterator Vertex_iterator;
+        typedef typename C3t3::Facets_in_complex_iterator Face_iterator;
+
         
         // Domain
         typedef Exact_predicates_inexact_constructions_kernel K;
@@ -146,7 +148,49 @@ namespace CGAL {
         
         indent.erase(indent.length()-indent_size, indent_size);
         vtk_file << indent + "</CellData>" << std::endl;
+
+
+        typedef typename Tr::Cell_handle Cell_handle;
+        typedef typename Tr::Vertex_handle Vertex_handle;
+        std::set<int> boundary_vertices;
+
+        for (Face_iterator it = c3t3.facets_in_complex_begin(); it != c3t3.facets_in_complex_end(); ++it)
+          {
+            Cell_handle ch = it->first;
+            int i = it->second;
+            Cell_handle nh = ch->neighbor(i);
+            if(c3t3.is_in_complex(ch) != c3t3.is_in_complex(nh))
+              {
+                boundary_vertices.insert(V[ch->vertex((i+1)%4)->point()]);
+                boundary_vertices.insert(V[ch->vertex((i+2)%4)->point()]);
+                boundary_vertices.insert(V[ch->vertex((i+3)%4)->point()]);
+              }
+          }
+
+        vtk_file << indent + "<PointData Scalars=\"scalars\">" << std::endl;
+        indent += indent_unit;
+        vtk_file << indent + "<DataArray type=\"Int32\" Name=\"Vertex Type\" Format=\"ascii\">" << std::endl;
         
+        indent += indent_unit;
+        for (int i=0; i < num_vertices; ++i)
+          {
+            const bool is_in = boundary_vertices.find(i) != boundary_vertices.end();
+            if (is_in)
+              {
+                vtk_file << indent << 1 << std::endl;
+              }
+            else
+              {
+                vtk_file << indent << 0 << std::endl;
+              }
+          }
+        
+        indent.erase(indent.length()-indent_size, indent_size);
+        vtk_file << indent + "</DataArray>" << std::endl;
+        
+        indent.erase(indent.length()-indent_size, indent_size);
+        vtk_file << indent + "</PointData>" << std::endl;
+
         indent.erase(indent.length()-indent_size, indent_size);
         vtk_file << indent + "</Piece>" << std::endl;
         

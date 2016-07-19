@@ -95,6 +95,7 @@ int main( int argc, char* argv[])
     // Mesh refinement
     //CGAL::refine_mesh_3(c3t3, domain, new_criteria, perturb(sliver_bound=20, time_limit=60));
     // Output
+    c3t3.remove_far_points();
     write_c3t3_to_vtk_xml_file(c3t3, outFile);
     return 0;
 }
