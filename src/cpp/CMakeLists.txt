@@ -24,7 +24,7 @@ if( TBB_FOUND )
 endif()
 
 # Boost and its components
-find_package( Boost REQUIRED thread NO_CMAKE_SYSTEM_PATH)
+find_package( Boost REQUIRED thread)
 
 if ( NOT Boost_FOUND )
 
