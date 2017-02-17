@@ -1,7 +1,7 @@
 #!/bin/sh
 cd src/cpp
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_C_COMPILER=/opt/conda/bin/gcc .
+      -DCMAKE_C_COMPILER=$HOME/anaconda2/bin/gcc .
 make
 mv mesh_polyhedral_domain ../tetmesh/
 cd ..

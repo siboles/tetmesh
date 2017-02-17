@@ -4,7 +4,7 @@
 project( mesh_polyhedral_domain )
 cmake_minimum_required(VERSION 2.8.11)
 # CGAL and its components
-find_package( CGAL QUIET COMPONENTS  )
+find_package( CGAL QUIET COMPONENTS NO_CMAKE_SYSTEM_PATH)
 
 if ( NOT CGAL_FOUND )
 
@@ -16,7 +16,7 @@ endif()
 # include helper file
 include( ${CGAL_USE_FILE} )
 
-find_package( TBB QUIET )
+find_package( TBB QUIET NO_CMAKE_SYSTEM_PATH )
 
 if( TBB_FOUND )
   include(${TBB_USE_FILE})
@@ -24,7 +24,7 @@ if( TBB_FOUND )
 endif()
 
 # Boost and its components
-find_package( Boost REQUIRED thread)
+find_package( Boost REQUIRED thread NO_CMAKE_SYSTEM_PATH)
 
 if ( NOT Boost_FOUND )
 
