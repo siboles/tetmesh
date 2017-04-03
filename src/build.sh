@@ -5,7 +5,6 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
       -D BOOST_ROOT=$PREFIX -D Boost_NO_SYSTEM_PATHS=ON \
-      -D TBB_LIBRARY=$PREFIX/lib \
       -DCMAKE_C_COMPILER=$HOME/anaconda2/bin/gcc .
 make
 mv mesh_polyhedral_domain ../tetmesh/

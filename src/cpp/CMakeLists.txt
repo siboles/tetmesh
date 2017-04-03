@@ -4,8 +4,6 @@
 project( mesh_polyhedral_domain )
 cmake_minimum_required(VERSION 2.8.11)
 
-list(APPEND CMAKE_MODULE_PATH "./findTBB.cmake")
-
 # CGAL and its components
 find_package( CGAL QUIET COMPONENTS NO_CMAKE_SYSTEM_PATH)
 
