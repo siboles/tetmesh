@@ -3,6 +3,9 @@
 
 project( mesh_polyhedral_domain )
 cmake_minimum_required(VERSION 2.8.11)
+
+list(APPEND CMAKE_MODULE_PATH "./findTBB.cmake")
+
 # CGAL and its components
 find_package( CGAL QUIET COMPONENTS NO_CMAKE_SYSTEM_PATH)
 
@@ -16,10 +19,10 @@ endif()
 # include helper file
 include( ${CGAL_USE_FILE} )
 
-find_package( TBB QUIET NO_CMAKE_SYSTEM_PATH )
+find_package( TBB QUIET )
 
 if( TBB_FOUND )
-  message(STATUS "Found TBB - Multithreading will be enabled.")
+	message(STATUS "Found TBB - Multithreading will be enabled." ${TBB_LIBRARIES})
   include(${TBB_USE_FILE})
   list(APPEND CGAL_3RD_PARTY_LIBRARIES ${TBB_LIBRARIES})
 endif()
