@@ -19,6 +19,7 @@ include( ${CGAL_USE_FILE} )
 find_package( TBB QUIET NO_CMAKE_SYSTEM_PATH )
 
 if( TBB_FOUND )
+  message(STATUS "Found TBB - Multithreading will be enabled.")
   include(${TBB_USE_FILE})
   list(APPEND CGAL_3RD_PARTY_LIBRARIES ${TBB_LIBRARIES})
 endif()

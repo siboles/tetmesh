@@ -16,15 +16,16 @@ requirements:
     - python
     - setuptools
     - trimesh
-    - cgal 4.9*
-    - tbb 4.4*
+    - cgal 4.8*
+    - libgcc 5.2*
+    - tbb 2017*
     - cmake [not osx and not win]
     - cmake-mac [osx or win]
   run:
     - python
-    - cgal 4.9*
+    - cgal 4.8*
     - trimesh
-    - tbb 4.4*
+    - tbb 2017*
 test:
   imports:
     - tetmesh
