@@ -1,1 +1,1 @@
-from mesh import Mesher
+from .mesh import Mesher
