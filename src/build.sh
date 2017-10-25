@@ -1,5 +1,6 @@
 #!/bin/sh
-cd src/cpp
+cd cpp
+echo $PREFIX
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \

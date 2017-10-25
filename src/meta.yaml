@@ -9,21 +9,21 @@ source:
 build:
   number: 0
   features:
-    - vc9 [win and py27]
+    - vc9 [win]
 
 requirements:
   build:
     - python
     - setuptools
     - trimesh
-    - cgal 4.11*
+    - cgal 4.10*
     - libgcc 5.2*
     - tbb 2017*
     - cmake [not osx and not win]
     - cmake-mac [osx or win]
   run:
     - python
-    - cgal 4.11*
+    - cgal 4.10*
     - trimesh
     - tbb 2017*
 test:
@@ -33,4 +33,4 @@ test:
 about:
   home: https://github.com/siboles/tetmesh
   summary: "A small module for building 3-D tetrahedral meshes from polygonal surfaces."
-  license: GPLv3
+  license: GPL

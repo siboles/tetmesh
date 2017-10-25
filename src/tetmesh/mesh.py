@@ -66,7 +66,7 @@ class Mesher(object):
     def _convertFormat(self):
         mesh = trimesh.load_mesh(self.inputname)
         self.inputname = "temporary{:d}.off".format(int(time.time()))
-        mesh.export("off", self.inputname)
+        mesh.export(file_obj=self.inputname, file_type="off")
 
     def makeMesh(self):
         remove = False
