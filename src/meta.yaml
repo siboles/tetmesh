@@ -9,20 +9,25 @@ source:
 build:
   number: 0
   features:
-    - vc9 [win]
+    - vc9 [win and py27]
+    - vc14 [win and py>=35]
 
 requirements:
   build:
     - python
     - setuptools
+    - vc 9 [win and py27]
+    - vc 14 [win and py>=35]	
     - trimesh
     - cgal 4.10*
-    - libgcc 5.2*
+    - libgcc 5.2* [not osx and not win]
+    - boost
     - tbb 2017*
-    - cmake [not osx and not win]
-    - cmake-mac [osx or win]
+    - cmake
   run:
     - python
+    - vc 9 [win and py27]
+    - vc 14 [win and py>=35]	
     - cgal 4.10*
     - trimesh
     - tbb 2017*

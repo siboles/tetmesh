@@ -1,7 +1,13 @@
+setlocal EnableDelayedExpansion
+
 cd %~dp0src/cpp
 if errorlevel 1 exit 1
 
-cmake -DCMAKE_BUILD_TYPE=Release -G"NMake Makefiles" .
+cmake -G "NMake Makefiles" ^
+      -DCMAKE_BUILD_TYPE:STRING=Release ^
+      -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
+	  .
+	  
 if errorlevel 1 exit 1
 
 nmake
