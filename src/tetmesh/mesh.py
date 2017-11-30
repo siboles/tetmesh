@@ -65,8 +65,11 @@ class Mesher(object):
 
     def _convertFormat(self):
         mesh = trimesh.load_mesh(self.inputname)
-        self.inputname = "temporary{:d}.off".format(int(time.time()))
-        mesh.export(file_obj=self.inputname, file_type="off")
+        if mesh.is_watertight:
+            self.inputname = "temporary{:d}.off".format(int(time.time()))
+            mesh.export(file_obj=self.inputname, file_type="off")
+        else:
+            raise SystemError("There is a hole in the mesh. Aborting meshing...")
 
     def makeMesh(self):
         remove = False

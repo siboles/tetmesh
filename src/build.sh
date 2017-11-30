@@ -1,12 +1,10 @@
 #!/bin/sh
-cd cpp
-echo $PREFIX
+cd src/cpp
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_PREFIX_PATH=$PREFIX \
       -DCMAKE_INSTALL_PREFIX=$PREFIX \
       -DCMAKE_SYSTEM_PREFIX_PATH=$PREFIX \
-      -D BOOST_ROOT=$PREFIX -D Boost_NO_SYSTEM_PATHS=ON \
-      -DCMAKE_C_COMPILER=$HOME/anaconda2/bin/gcc .
+      -D BOOST_ROOT=$PREFIX -D Boost_NO_SYSTEM_PATHS=ON .
 make
 mv mesh_polyhedral_domain ../tetmesh/
 cd ..

@@ -20,17 +20,19 @@ requirements:
     - vc 14 [win and py>=35]	
     - trimesh
     - cgal 4.10*
+    - gcc
     - libgcc 5.2* [not osx and not win]
     - boost
-    - tbb 2017*
+    - tbb
     - cmake
   run:
     - python
     - vc 9 [win and py27]
     - vc 14 [win and py>=35]	
     - cgal 4.10*
+    - libgcc 5.2* [not osx and not win]
     - trimesh
-    - tbb 2017*
+    - tbb
 test:
   imports:
     - tetmesh

@@ -17,7 +17,7 @@ endif()
 # include helper file
 include( ${CGAL_USE_FILE} )
 
-find_package( TBB QUIET )
+find_package( TBB QUIET)
 
 if( TBB_FOUND )
 	message(STATUS "Found TBB - Multithreading will be enabled." ${TBB_LIBRARIES})
